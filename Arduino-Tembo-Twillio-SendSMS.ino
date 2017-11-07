@@ -155,3 +155,91 @@ void loop()
   Keeping your account information in a separate file means you can share the main .ino file without worrying 
   that you forgot to delete your credentials.
 */
+
+
+
+
+
+- - -- -- - -- 
+  
+#include <Bridge.h>
+#include <Temboo.h>
+#include "TembooAccount.h" // contains Temboo account information
+/*** SUBSTITUTE YOUR VALUES BELOW: ***/
+// Note that for additional security and reusability, you could
+// use #define statements to specify these values in a .h file.
+// the Account SID from your Twilio account
+const String TWILIO_ACCOUNT_SID = "xxxxxxxxxx";
+// the Auth Token from your Twilio account
+const String TWILIO_AUTH_TOKEN = "xxxxxxxxxx";
+// your Twilio phone number, e.g., "+1 555-222-1212"
+const String TWILIO_NUMBER = "xxxxxxxxxx";
+// the number to which the SMS should be sent, e.g., "+1 555-222-1212"
+const String RECIPIENT_NUMBER = "xxxxxxxxxx";
+boolean success = false; // a flag to indicate whether we've sent the SMS yet or not
+void setup() {
+  Serial.begin(9600);
+  // for debugging, wait until a serial console is connected
+  delay(4000);
+  while(!Serial);
+  Bridge.begin();
+}
+void loop()
+{
+  // only try to send the SMS if we haven't already sent it successfully
+  if (!success) {
+    Serial.println("Running SendAnSMS...");
+    
+    // we need a Process object to send a Choreo request to Temboo
+    TembooChoreo SendSMSChoreo;
+    // invoke the Temboo client
+    // NOTE that the client must be reinvoked and repopulated with
+    // appropriate arguments each time its run() method is called.
+    SendSMSChoreo.begin();
+    
+    // set Temboo account credentials
+    SendSMSChoreo.setAccountName(TEMBOO_ACCOUNT);
+    SendSMSChoreo.setAppKeyName(TEMBOO_APP_KEY_NAME);
+    SendSMSChoreo.setAppKey(TEMBOO_APP_KEY);
+    // identify the Temboo Library choreo to run (Twilio > SMSMessages > SendSMS)
+    SendSMSChoreo.setChoreo("/Library/Twilio/SMSMessages/SendSMS");
+    // set the required choreo inputs
+    // see https://www.temboo.com/library/Library/Twilio/SMSMessages/SendSMS/ 
+    // for complete details about the inputs for this Choreo
+    // the first input is a your AccountSID
+    SendSMSChoreo.addInput("AccountSID", TWILIO_ACCOUNT_SID);
+    
+    // next is your Auth Token
+    SendSMSChoreo.addInput("AuthToken", TWILIO_AUTH_TOKEN);
+    // next is your Twilio phone number
+    SendSMSChoreo.addInput("From", TWILIO_NUMBER);
+    
+    // next, what number to send the SMS to
+    SendSMSChoreo.addInput("To", RECIPIENT_NUMBER);
+    // finally, the text of the message to send
+    SendSMSChoreo.addInput("Body", "Hey, there! This is a message from your Arduino Yun!");
+    
+    // tell the Process to run and wait for the results. The 
+    // return code (returnCode) will tell us whether the Temboo client 
+    // was able to send our request to the Temboo servers
+    unsigned int returnCode = SendSMSChoreo.run();
+    // a return code of zero (0) means everything worked
+    if (returnCode == 0) {
+        Serial.println("Success! SMS sent!");
+        success = true;
+    } else {
+      // a non-zero return code means there was an error
+      // read and print the error message
+      while (SendSMSChoreo.available()) {
+        char c = SendSMSChoreo.read();
+        Serial.print(c);
+      }
+    } 
+    SendSMSChoreo.close();
+    // do nothing for the next 60 seconds
+    Serial.println("Waiting...");
+    delay(60000);
+  }
+}
+
+  
