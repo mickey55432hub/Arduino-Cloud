@@ -10,13 +10,24 @@ https://ubidots.com/docs/#send-one-value-to-ubidots
 
 https://www.instructables.com/id/Intruder-Alarm-With-Text-Message-Notification/
 https://www.instructables.com/id/Intruder-Alarm-With-Text-Message-Notification/
-
 http://wirebeings.com/arduino-intruder-alarm.html
 http://wirebeings.com/arduino-intruder-alarm.html
-
 https://www.twilio.com/docs/guides?filter-product=sms
 https://temboo.com/library/Library/Twilio/
 - - - -- - - 
+
+
+
+
+- - -- - -Try thingspeak %%%twillio - - - - - - 
+
+https://github.com/mathworks/thingspeak-arduino/blob/master/examples/WriteVoltage/WriteVoltage.ino
+https://blogs.mathworks.com/iot/2015/10/09/official-thingspeak-library-for-arduino-and-particle/
+http://community.thingspeak.com/tutorials/twilio/make-calls-with-twilio-using-the-thinghttp-app/
+https://in.mathworks.com/help/thingspeak/timecontrol-app.html#bvevu3k-9
+
+
+
 
 
 
