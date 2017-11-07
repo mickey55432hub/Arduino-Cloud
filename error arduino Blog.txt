@@ -1,0 +1,84 @@
+Arduino: 1.8.4 (Windows 8.1), Board: "Intel® Edison"
+
+C:\Users\shivam tiwari\Documents\Arduino\libraries\ubidots-arduino-ethernet-master\src\UbidotsEthernet.cpp: In member function 'bool Ubidots::sendAll()':
+
+C:\Users\shivam tiwari\Documents\Arduino\libraries\ubidots-arduino-ethernet-master\src\UbidotsEthernet.cpp:242:39: error: call of overloaded 'String(double&, int)' is ambiguous
+
+     str = String(((val+i)->varValue),3); // variable value
+
+                                       ^
+
+C:\Users\shivam tiwari\Documents\Arduino\libraries\ubidots-arduino-ethernet-master\src\UbidotsEthernet.cpp:242:39: note: candidates are:
+
+In file included from C:\Users\shivam tiwari\AppData\Local\Arduino15\packages\Intel\hardware\i686\1.6.7+1.0\cores\arduino/Print.h:26:0,
+
+                 from C:\Users\shivam tiwari\AppData\Local\Arduino15\packages\Intel\hardware\i686\1.6.7+1.0\cores\arduino/Stream.h:26,
+
+                 from C:\Users\shivam tiwari\AppData\Local\Arduino15\packages\Intel\hardware\i686\1.6.7+1.0\cores\arduino/HardwareSerial.h:24,
+
+                 from C:\Users\shivam tiwari\AppData\Local\Arduino15\packages\Intel\hardware\i686\1.6.7+1.0\cores\arduino/TTYUART.h:24,
+
+                 from C:\Users\shivam tiwari\AppData\Local\Arduino15\packages\Intel\hardware\i686\1.6.7+1.0\variants\edison_fab_c/variant.h:35,
+
+                 from C:\Users\shivam tiwari\AppData\Local\Arduino15\packages\Intel\hardware\i686\1.6.7+1.0\cores\arduino/Arduino.h:33,
+
+                 from C:\Users\shivam tiwari\AppData\Local\Arduino15\packages\Intel\hardware\i686\1.6.7+1.0\libraries\SPI\src/SPI.h:15,
+
+                 from C:\Users\shivam tiwari\Documents\Arduino\libraries\ubidots-arduino-ethernet-master\src\UbidotsEthernet.h:32,
+
+                 from C:\Users\shivam tiwari\Documents\Arduino\libraries\ubidots-arduino-ethernet-master\src\UbidotsEthernet.cpp:30:
+
+C:\Users\shivam tiwari\AppData\Local\Arduino15\packages\Intel\hardware\i686\1.6.7+1.0\cores\arduino/WString.h:70:11: note: String::String(long unsigned int, unsigned char)
+
+  explicit String(unsigned long, unsigned char base=10);
+
+           ^
+
+C:\Users\shivam tiwari\AppData\Local\Arduino15\packages\Intel\hardware\i686\1.6.7+1.0\cores\arduino/WString.h:69:11: note: String::String(long int, unsigned char)
+
+  explicit String(long, unsigned char base=10);
+
+           ^
+
+C:\Users\shivam tiwari\AppData\Local\Arduino15\packages\Intel\hardware\i686\1.6.7+1.0\cores\arduino/WString.h:68:11: note: String::String(unsigned int, unsigned char)
+
+  explicit String(unsigned int, unsigned char base=10);
+
+           ^
+
+C:\Users\shivam tiwari\AppData\Local\Arduino15\packages\Intel\hardware\i686\1.6.7+1.0\cores\arduino/WString.h:67:11: note: String::String(int, unsigned char)
+
+  explicit String(int, unsigned char base=10);
+
+           ^
+
+C:\Users\shivam tiwari\AppData\Local\Arduino15\packages\Intel\hardware\i686\1.6.7+1.0\cores\arduino/WString.h:66:11: note: String::String(unsigned char, unsigned char)
+
+  explicit String(unsigned char, unsigned char base=10);
+
+           ^
+
+C:\Users\shivam tiwari\Documents\Arduino\libraries\ubidots-arduino-ethernet-master\src\UbidotsEthernet.cpp:245:71: error: 'class String' has no member named 'c_str'
+
+         sprintf(body, "%s{\"value\":%s, \"context\":{%s}}", body, str.c_str(), (val + i)->context);
+
+                                                                       ^
+
+C:\Users\shivam tiwari\Documents\Arduino\libraries\ubidots-arduino-ethernet-master\src\UbidotsEthernet.cpp:247:70: error: 'class String' has no member named 'c_str'
+
+       sprintf(body, "%s{\"value\":%s, \"timestamp\":%lu}", body, str.c_str(), (val + i)->timestamp_val);
+
+                                                                      ^
+
+C:\Users\shivam tiwari\Documents\Arduino\libraries\ubidots-arduino-ethernet-master\src\UbidotsEthernet.cpp:249:39: error: 'class String' has no member named 'c_str'
+
+       sprintf(body, "%s%s", body, str.c_str());
+
+                                       ^
+
+exit status 1
+Error compiling for board Intel® Edison.
+
+This report would have more information with
+"Show verbose output during compilation"
+option enabled in File -> Preferences.

@@ -1,0 +1,50 @@
+Arduino: 1.8.5 (Windows 8.1), Board: "Arduino Nano, ATmega328P"
+
+C:\Users\SHIVAM~1\AppData\Local\Temp\arduino_modified_sketch_880408\SendAnSMS.ino:37:25: fatal error: ESP8266WiFi.h: No such file or directory
+
+ #include <ESP8266WiFi.h>
+
+                         ^
+
+compilation terminated.
+
+exit status 1
+Error compiling for board Arduino Nano.
+
+This report would have more information with
+"Show verbose output during compilation"
+option enabled in File -> Preferences.
+
+
+
+- - -- - - --
+Arduino: 1.8.5 (Windows 8.1), Board: "Generic ESP8266 Module, 80 MHz, 40MHz, DIO, 115200, 512K (64K SPIFFS), ck, Disabled, None"
+
+Archiving built core (caching) in: C:\Users\SHIVAM~1\AppData\Local\Temp\arduino_cache_618847\core\core_esp8266_esp8266_generic_CpuFrequency_80,FlashFreq_40,FlashMode_dio,UploadSpeed_115200,FlashSize_512K64,ResetMethod_ck,Debug_Disabled,DebugLevel_None_____8a93e4377ecd7fe9425d4e982ce4a912.a
+Sketch uses 224533 bytes (51%) of program storage space. Maximum is 434160 bytes.
+Global variables use 32284 bytes (39%) of dynamic memory, leaving 49636 bytes for local variables. Maximum is 81920 bytes.
+warning: espcomm_send_command: wrong direction/command: 0x01 0x03, expected 0x01 0x08
+Uploading 228688 bytes from C:\Users\SHIVAM~1\AppData\Local\Temp\arduino_build_740829/Blink.ino.bin to flash at 0x00000000
+..............warning: espcomm_send_command: didn't receive command response
+warning: espcomm_send_command(FLASH_DOWNLOAD_DATA) failed
+warning: espcomm_send_command: wrong direction/command: 0x01 0x03, expected 0x01 0x04
+error: espcomm_upload_mem failed
+error: espcomm_upload_mem failed
+
+This report would have more information with
+"Show verbose output during compilation"
+option enabled in File -> Preferences.
+
+Arduino: 1.8.5 (Windows 8.1), Board: "Generic ESP8266 Module, 80 MHz, 40MHz, DIO, 115200, 512K (64K SPIFFS), ck, Disabled, None"
+
+Archiving built core (caching) in: C:\Users\SHIVAM~1\AppData\Local\Temp\arduino_cache_618847\core\core_esp8266_esp8266_generic_CpuFrequency_80,FlashFreq_40,FlashMode_dio,UploadSpeed_115200,FlashSize_512K64,ResetMethod_ck,Debug_Disabled,DebugLevel_None_____8a93e4377ecd7fe9425d4e982ce4a912.a
+Sketch uses 226401 bytes (52%) of program storage space. Maximum is 434160 bytes.
+Global variables use 32480 bytes (39%) of dynamic memory, leaving 49440 bytes for local variables. Maximum is 81920 bytes.
+error: Failed to open COM14
+error: espcomm_open failed
+error: espcomm_upload_mem failed
+error: espcomm_upload_mem failed
+
+This report would have more information with
+"Show verbose output during compilation"
+option enabled in File -> Preferences.
